@@ -20,6 +20,7 @@
 
 			function onSuccess(googleUser) {
 				console.log(googleUser);
+				console.log(googleUser.getAuthResponse().id_token);
 				$('#disconnect').css('display', 'block');
 			}
 
