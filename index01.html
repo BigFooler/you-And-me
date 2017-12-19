@@ -40,10 +40,7 @@
 							'onsuccess': onSuccess,
 							'onfailure': onFailure
 						});
-						gapi.auth2.init({
-							fetch_basic_profile: true,
-							scope: 'https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
-						}).then(
+						gapi.auth2.init().then(
 							function() {
 								auth2 = gapi.auth2.getAuthInstance();
 								auth2.isSignedIn.listen(updateSignIn);
@@ -55,7 +52,6 @@
 			var updateSignIn = function() {
 				if(auth2.isSignedIn.get()) {
 					console.log(gapi.auth2.getAuthInstance());
-					$("#disconnect").css('display','block')
 					//helper.onSignInCallback(gapi.auth2.getAuthInstance());
 				} else {
 					console.log('signed out');
