@@ -1,76 +1,30 @@
 <html>
+<head>
+  <meta name="google-signin-client_id" content="1031779384204-tlat6rjekinl84pteq9e0593aefbq1eu.apps.googleusercontent.com">
+</head>
+<body>
+  <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'app_package_name':'com.tomtop.shop',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
-	<head>
-		<meta name="google-signin-client_id" content="1031779384204-tlat6rjekinl84pteq9e0593aefbq1eu.apps.googleusercontent.com">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	</head>
-
-	<body>
-		<div id="my-signin2"></div>
-		<button id="disconnect" style="display:none">Disconnect your Google account from this app</button>
-		<script>
-			var helper = (function() {
-				return {
-					disconnect: function() {
-						// Revoke the access token.
-						auth2.disconnect();
-					}
-				}
-			})();
-
-			function onSuccess(googleUser) {
-				console.log(googleUser);
-				$('#disconnect').css('display', 'block');
-			}
-
-			function onFailure(error) {
-				console.log(error);
-			}
-
-			function renderButton() {
-				gapi.load('auth2', function() {
-					gapi.client.load('plus', 'v1').then(function() {
-						gapi.signin2.render('my-signin2', {
-							'scope': 'profile email',
-							'width': 240,
-							'height': 50,
-							'longtitle': true,
-							'theme': 'dark',
-							'onsuccess': onSuccess,
-							'onfailure': onFailure
-						});
-						gapi.auth2.init({
-							fetch_basic_profile: true,
-							scope: 'https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
-							'apppackagename': 'com.tomtop.com'
-						}).then(
-							function() {
-								auth2 = gapi.auth2.getAuthInstance();
-								auth2.isSignedIn.listen(updateSignIn);
-																auth2.then(updateSignIn);
-							});
-					});
-				});
-			}
-			var updateSignIn = function() {
-				if(auth2.isSignedIn.get()) {
-					console.log(gapi.auth2.getAuthInstance());
-					$("#disconnect").css('display','block')
-					//helper.onSignInCallback(gapi.auth2.getAuthInstance());
-				} else {
-					console.log('signed out');
-					//helper.onSignInCallback(gapi.auth2.getAuthInstance());
-				}
-			}
-			$(document).ready(function() {
-				$('#disconnect').on('click', function() {
-					helper.disconnect();
-					$(this).css('display','none')
-				});
-			});
-		</script>
-
-		<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
-	</body>
-
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
 </html>
