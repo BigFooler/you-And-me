@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p {
+				font-size: 18px;
+				line-height: 200%;
+				text-align: center;
+			}
+			
+			.d1 {
+				background: #e74c3c;
+				color: white;
+				font-size: 24px;
+				padding: 5px;
+				text-align: center;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				transition: top .5s;
+			}
+			
+			.gizle {
+				top: -90px;
+			}
+			
+			.sabit {
+				top: 0;
+				z-index: 9999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="d1">STICKY HEADER</div>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eos quae ducimus iusto laudantium commodi dolorem earum nostrum voluptas ab itaque fugiat nesciunt cupiditate! Harum quas amet magni nemo maiores.</p>
+		<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+		<script>
+			// 代码整理：懒人之家 www.lanrenzhijia.com
+			$(function() {
+				var _Cscrolltop = $(document).scrollTop();
+				var _header = $('.d1').outerHeight();
+
+				$(window).scroll(function() {
+					var _scrolltop = $(document).scrollTop();
+					//滚动距离大于banner的高度
+					if(_scrolltop > _header) {
+						$('.d1').addClass('gizle');
+					} else {
+						$('.d1').removeClass('gizle');
+					}
+					//上滚显示banner
+					if(_scrolltop > _Cscrolltop) {
+						$('.d1').removeClass('sabit');
+					} else {
+						$('.d1').addClass('sabit');
+					}
+
+					_Cscrolltop = $(document).scrollTop();
+				});
+			});
+		</script>
+	</body>
+
+</html>
