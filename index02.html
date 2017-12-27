@@ -50,7 +50,7 @@
   successful sign in -->
 		<div id="gSignInWrapper">
 			<span class="label">Sign in with:</span>
-			<a id="customBtn" class="customGPlusSignIn" onclick="startApp('www.tomtop.com');return false">
+			<a id="customBtn" class="customGPlusSignIn" onclick="startApp();return false">
 				<span class="icon"></span>
 				<!--<span class="buttonText">Google</span>-->
 			</a>
@@ -59,7 +59,7 @@
 		<script>
 			
 				var googleUser = {};
-				var startApp = function(url) {
+				var startApp = function() {
 					gapi.load('auth2', function() {
 						auth2 = gapi.auth2.init({
 							client_id: '1031779384204-tlat6rjekinl84pteq9e0593aefbq1eu.apps.googleusercontent.com',
@@ -67,16 +67,15 @@
 							scope: 'profile profile',
 							'app_package_name': 'com.tomtop.shop',
 						});
-						attachSignin(document.getElementById('customBtn'),url);
+						attachSignin(document.getElementById('customBtn'));
 					});
 				};
 
-				function attachSignin(element,url) {
+				function attachSignin(element) {
 					auth2.attachClickHandler(element, {},
 						function(googleUser) {
 							console.log(googleUser.getAuthResponse().id_token)
 							console.log(googleUser.getBasicProfile())
-							location.assign(url);
 						},
 						function(error) {
 							alert(JSON.stringify(error, undefined, 2));
