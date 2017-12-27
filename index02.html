@@ -50,14 +50,14 @@
   successful sign in -->
 		<div id="gSignInWrapper">
 			<span class="label">Sign in with:</span>
-			<a id="customBtn" class="customGPlusSignIn">
+			<a id="customBtn" class="customGPlusSignIn" onclick="startApp();return false">
 				<span class="icon"></span>
 				<!--<span class="buttonText">Google</span>-->
 			</a>
 		</div>
 		<script src="https://apis.google.com/js/api:client.js"></script>
 		<script>
-			window.onload = function() {
+			
 				var googleUser = {};
 				var startApp = function() {
 					gapi.load('auth2', function() {
@@ -81,8 +81,7 @@
 							alert(JSON.stringify(error, undefined, 2));
 						});
 				}
-				startApp();
-			}
+			
 		</script>
 		<script>
 		</script>
