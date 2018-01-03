@@ -4,18 +4,74 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
+			.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
 			.chart div {
-  			display: inline-block;
-  			width: 20px;
-  			height: 20px;
+  			/*display: inline-block;*/
+  			/*width: 20px;*/
+  			/*height: 20px;*/
+  			margin-bottom:3px ;
+  			background-color: #79A8AE;
   			margin-right: 3px;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="chart"></div>
+		<!--<div class="chart"></div>-->
+		<svg class="chart"></svg>
 		<script src='js/d3.min.js'></script>
 		<script>
+			var data = [4,8,15,16,23,42];
+			
+			var width = 420,barHeight = 20;
+			var x = d3.scaleLinear()
+							.domain([0,d3.max(data)])
+							.range([0,width])
+							
+			var chart = d3.select('.chart')
+									.attr('width',width)
+									.attr('height',barHeight*data.length);
+									
+			var bar = chart.selectAll('g')
+								.data(data)
+								.enter()
+								.append('g')
+								.attr('transform',(d,i) => {return "translate(0,"+i*barHeight+")";})
+								
+			bar.append('rect')
+				 .attr('width',x)
+				 .attr('height',barHeight-1);
+				 
+			bar.append('text')	 
+				.attr("x", function(d) { return x(d) - 3; })
+    		.attr("y", barHeight / 2)
+    		.attr("dy", ".35em")
+    		//.text(function(d) { return d; })
+				.text(d => d)
+//			var x = d3.scaleLinear()
+//  		.domain([0, d3.max(data)])
+//  		.range([0, 420]);
+//			d3.select('.chart')
+//				.selectAll('div')
+//				.data(data)
+//				.enter().append('div')
+//				.style('width',d => x(d) +'px')
+//				.text(d => d)
+//			d3.select('body').transition().style({'background-color':'#eee','font-size':"18px"})
+//			d3.select('.chart')
+//			.selectAll('p')
+//			.data([12,16,18,24,26])
+//			.enter('').append('div')
+//			.text(d => d)
+//			.style('font-size',d => d+'px')
+			
 //			var data = [4,8,16,16,23,42];
 //			d3.select('.chart')
 //			.selectAll('div')
@@ -23,19 +79,19 @@
 //			.enter().append('div')
 //			.style('height',d => d + 'px')
 //			//.text(function(d){return d;})
-
-				const colorMap = d3.interpolateRgb(
-					d3.rgb('#d6e685'),
-  				d3.rgb('#1e6823')
-				);
-				d3.select('.chart')
-					.selectAll('div')
-					.data([.2,.4,0,0,.13,92])
-					.enter()
-					.append('div')
-					.style('background-color',(d) => {
-						return d == 0 ? "#eee" : colorMap(d);
-					})
+//
+//				const colorMap = d3.interpolateRgb(
+//					d3.rgb('#d6e685'),
+//				d3.rgb('#1e6823')
+//				);
+//				d3.select('.chart')
+//					.selectAll('div')
+//					.data([.2,.4,0,0,.13,92])
+//					.enter()
+//					.append('div')
+//					.style('background-color',(d) => {
+//						return d == 0 ? "#eee" : colorMap(d);
+//					})
 		</script>
 	</body>
 </html>
