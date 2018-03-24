@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+		<style>
+			.list-group-item{
+				width: 20%;
+				display: inline-block;
+			}
+			#items li{width: 30%;display: inline-block;}
+		</style>
+	</head>
+	<body>
+		<div id="listWithHandle" class="list-group">
+    <div class="list-group-item">
+      <span class="badge">14</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+      Drag me by the handle
+    </div>
+    <div class="list-group-item">
+      <span class="badge">2</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+      You can also select text
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+    <div class="list-group-item">
+      <span class="badge">1</span>
+      <span class="glyphicon glyphicon-move" aria-hidden="true">Best of both worlds!</span>
+      
+    </div>
+  </div>
+  
+  <ul id="items">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+</ul>
+		<script src='js/sortable.js'></script>
+		<script type="text/javascript">
+			// Simple list
+//Sortable.create(simpleList, { /* options */ });
+
+// List with handle
+Sortable.create(listWithHandle, {
+  handle: '.list-group-item',
+  animation: 150
+});
+var el = document.getElementById('items');
+var sortable = Sortable.create(el,{});
+		</script>
+	</body>
+</html>

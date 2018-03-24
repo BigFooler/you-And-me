@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<scrip<br />t src="OBJLoader.js" type="text/javascript" charset="utf-8"></script>-->
+		<style>
+			*{
+				margin:0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="three.js"></script>
+		<script type="text/javascript">
+			var scene = new THREE.Scene();
+			//var width = 400;
+			//var height = 300;
+			var camera = new THREE.PerspectiveCamera(45,400/300,0.1,1000);
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setClearColor(0xEEEEEE,1.0);
+			renderer.setSize(800,600);
+			renderer.shadowMap.enabled = true;
+			
+			var axes = new THREE.AxisHelper(20);
+			scene.add(axes);
+			
+			var planeGeometry = new THREE.PlaneGeometry(60,20,1,1);
+			var planeMaterial = new THREE.MeshLambertMaterial({
+				color:0xcccccc
+			});
+			var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+			plane.rotation.x = -0.5*Math.PI;
+			
+			plane.position.x = 15;
+			plane.position.y = 0;
+			plane.position.z = 0;
+			
+			scene.add(plane);
+			
+			var cubeGeometry = new THREE.CubeGeometry(4,4,4);
+			var cubeMaterial = new THREE.MeshLambertMaterial({
+				color:0xff0000,
+				wireframe:true
+			})
+			var cube = new THREE.Mesh(cubeGeometry,cubeMaterial);
+			cube.position.x = -4;
+			cube.position.y = 3;
+			cube.position.z = 0;
+			cube.rotation.y = 0.5;
+			scene.add(cube);
+			
+			var sphereGeometey = new THREE.SphereGeometry(4,20,20);
+			var sphereMaterial = new THREE.MeshLambertMaterial({
+				color:0x7777ff,
+				wireframe: true
+			})
+			var sphere = new THREE.Mesh(sphereGeometey,sphereMaterial);
+			sphere.position.x = 10;
+			sphere.position.y = 4;
+			sphere.position.z = 0;
+			scene.add(sphere);
+			
+			var spotLight = new THREE.SpotLight(0xffdd00);
+			spotLight.position.set(-40,60,-10);
+			scene.add(spotLight);
+			
+			camera.position.x = -30;
+			camera.position.y = 40;
+			camera.position.x = 30;
+			camera.lookAt(scene.position);
+			scene.add(camera);
+			
+			//阴影
+			plane.receiveShadow = true;
+			sphere.castShadow =  true;
+			spotLight.castShadow = true;
+			
+			//渲染
+			document.body.appendChild(renderer.domElement);
+			var step = 0;
+			renderScene();
+			function renderScene(){
+				step+=0.04;
+				sphere.position.x = 10 + (10 * (Math.cos(step)));
+				sphere.position.y = 2 + (10 * (Math.abs(Math.sin(step))));
+				requestAnimationFrame(renderScene)
+				renderer.render(scene,camera)
+			}
+		</script>
+	</body>
+</html>
