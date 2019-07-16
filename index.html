@@ -133,7 +133,10 @@
 
 <body>
   <div class="text">
-   <embed src="./1.mp3" type="" hidden='true'>
+    <video  id="audio1"   autoplay="autoplay" loop="loop">
+      <source src="./1.mp3" type="audio/mp3" />
+    </video>
+  
     <div id="aa"></div>
     <div style="display:none" id="w">
       参差荇菜,左右流之
@@ -157,6 +160,8 @@
     </div>
   </div>
   <script>
+      // var audio = document.getElementById('audio1')
+      // audio.play()
     // 随机色
     var getRandomColor = function () {
       return '#' +
