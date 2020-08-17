@@ -133,7 +133,9 @@
 
 <body>
   <div class="text">
-   <embed src="./1.mp3" type="audio/mpeg" hidden='true'>
+    <audio controls autoplay>
+      <source src="/public/1.mp3" >
+    </audio>
     <div id="aa"></div>
     <div style="display:none" id="w">
       参差荇菜,左右流之
@@ -148,12 +150,12 @@
   </div>
   <div class="heart">
     <div class="cube">
-      <div><img src="./img/1.jpg" alt=""></div>
-      <div><img src="./img/2.jpg" alt=""></div>
-      <div><img src="./img/3.jpg" alt=""></div>
-      <div><img src="./img/4.jpg" alt=""></div>
-      <div><img src="./img/5.jpg" alt=""></div>
-      <div><img src="./img/6.jpg" alt=""></div>
+      <div><img src="/public/img/1.jpg" alt=""></div>
+      <div><img src="/public/img/2.jpg" alt=""></div>
+      <div><img src="/public/img/3.jpg" alt=""></div>
+      <div><img src="/public/img/4.jpg" alt=""></div>
+      <div><img src="/public/img/5.jpg" alt=""></div>
+      <div><img src="/public/img/6.jpg" alt=""></div>
     </div>
   </div>
   <script>
