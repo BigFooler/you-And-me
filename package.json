@@ -20,7 +20,7 @@
     "eslint-config-egg": "^7.1.0"
   },
   "engines": {
-    "node": "10.0.0"
+    "node": ">=10.0.0"
   },
   "scripts": {
     "start": "egg-scripts start --port=5050 --daemon --title=egg-server-y",
